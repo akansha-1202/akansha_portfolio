@@ -57,8 +57,9 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I&apos;m Akansha, a developer passionate about building
-              beautiful and interactive web experiences.
+              Hi, I&apos;m Akansha Verma — a Full Stack Web Developer at
+              Unibots, New Delhi. I build ad-tech dashboards, REST APIs, and
+              integrations with Next.js, React, Node.js, and Python.
             </p>
 
             <Button

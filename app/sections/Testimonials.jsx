@@ -1,26 +1,26 @@
-import { testimonials } from "../constants";
+import { educationItems } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="flex-center section-padding">
+    <section id="education" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="What People Say About Me?"
-          sub="⭐️ Customer feedback highlights"
+          title="Education & Professional Journey"
+          sub="🎓 Learning path and milestones"
         />
 
         <div className="lg:columns-3 md:columns-2 columns-1 mt-16">
-          {testimonials.map((testimonial, index) => (
-            <GlowCard card={testimonial} key={index} index={index}>
+          {educationItems.map((item, index) => (
+            <GlowCard card={item} key={index} index={index}>
               <div className="flex items-center gap-3">
                 <div>
-                  <img src={testimonial.imgPath} alt="" />
+                  <img src={item.imgPath} alt="" />
                 </div>
                 <div>
-                  <p className="font-bold">{testimonial.name}</p>
-                  <p className="text-white-50">{testimonial.mentions}</p>
+                  <p className="font-bold">{item.name}</p>
+                  <p className="text-white-50">{item.mentions}</p>
                 </div>
               </div>
             </GlowCard>

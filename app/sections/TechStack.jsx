@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import TitleHeader from "../components/TitleHeader";
-import { techStackIcons } from "../constants";
+import { techStackIcons, skillTags } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,6 +57,16 @@ const TechStack = () => {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+        <div className="flex flex-wrap justify-center gap-3 mt-12">
+          {skillTags.map((skill) => (
+            <span
+              key={skill}
+              className="hero-badge text-sm md:text-base"
+            >
+              {skill}
+            </span>
           ))}
         </div>
       </div>

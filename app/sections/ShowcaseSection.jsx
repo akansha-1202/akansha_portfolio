@@ -5,13 +5,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
+import { projects } from "../constants";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const ShowcaseSection = () => {
   const sectionRef = useRef(null);
-  const rydeRef = useRef(null);
-  const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
+  const featuredRef = useRef(null);
+  const secondRef = useRef(null);
+  const thirdRef = useRef(null);
+
+  const [featured, second, third] = projects;
 
   useGSAP(() => {
     gsap.fromTo(
@@ -20,7 +24,7 @@ const ShowcaseSection = () => {
       { opacity: 1, duration: 1.5 }
     );
 
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [featuredRef.current, secondRef.current, thirdRef.current];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -44,38 +48,30 @@ const ShowcaseSection = () => {
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <div className="showcaselayout">
-          <div ref={rydeRef} className="first-project-wrapper">
+          <div ref={featuredRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+              <img src={featured.image} alt={featured.title} />
             </div>
             <div className="text-content">
-              <h2>
-                On-Demand Rides Made Simple with a Powerful, User-Friendly App
-                called Ryde
-              </h2>
-              <p className="text-white-50 md:text-xl">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
-                user-friendly experience.
-              </p>
+              <h2>{featured.title}</h2>
+              <p className="text-white-50 md:text-xl">{featured.description}</p>
+              <p className="text-white-50 md:text-lg mt-2">{featured.tech}</p>
             </div>
           </div>
 
           <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
-                <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
-                />
+            <div className="project" ref={secondRef}>
+              <div className={`image-wrapper ${second.bgColor}`}>
+                <img src={second.image} alt={second.title} />
               </div>
-              <h2>The Library Management Platform</h2>
+              <h2>{second.title}</h2>
             </div>
 
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+            <div className="project" ref={thirdRef}>
+              <div className={`image-wrapper ${third.bgColor}`}>
+                <img src={third.image} alt={third.title} />
               </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
+              <h2>{third.title}</h2>
             </div>
           </div>
         </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Akansha Verma | 3D Portfolio",
+  title: "Akansha Verma | Full Stack Web Developer",
   description:
-    "Interactive 3D portfolio showcasing projects, experience, and skills.",
+    "Full Stack Web Developer at Unibots specializing in ad-tech dashboards, AdX/AdSense integration, header bidding, and MERN stack development.",
 };
 
 export default function RootLayout({
