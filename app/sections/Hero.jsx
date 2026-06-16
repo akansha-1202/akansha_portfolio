@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "../lib/gsap";
 
@@ -23,6 +23,15 @@ const techPills = [
 
 const Hero = () => {
   const heroRef = useRef(null);
+  const [showHeroCanvas, setShowHeroCanvas] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setShowHeroCanvas(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useGSAP(
     () => {
@@ -38,25 +47,28 @@ const Hero = () => {
             { y: 0, opacity: 1, stagger: 0.08, duration: 0.45 },
             "-=0.35"
           )
-          .fromTo(".hero-cta", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.25")
-          .fromTo(
+          .fromTo(".hero-cta", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.25");
+
+        if (heroRef.current?.querySelector(".hero-canvas")) {
+          tl.fromTo(
             ".hero-canvas",
             { opacity: 0, x: 40 },
             { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
             0.15
           );
+        }
       }, heroRef);
 
       return () => ctx.revert();
     },
-    { scope: heroRef }
+    { scope: heroRef, dependencies: [showHeroCanvas] }
   );
 
   return (
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-dvh overflow-hidden bg-black"
+      className="relative min-h-0 xl:min-h-dvh overflow-hidden bg-black"
     >
       <div className="pointer-events-none absolute top-0 left-0 z-0 opacity-70">
         <img src="/images/bg.png" alt="" className="w-40 sm:w-auto" />
@@ -130,11 +142,13 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-canvas relative z-10 w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[56%] xl:-translate-y-1/2 h-[36vh] sm:h-[42vh] md:h-[48vh] xl:h-[min(85vh,700px)]">
-            <div className="relative h-full w-full">
-              <HeroExperience />
+          {showHeroCanvas && (
+            <div className="hero-canvas relative z-10 w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[56%] xl:-translate-y-1/2 h-[42vh] md:h-[48vh] xl:h-[min(85vh,700px)]">
+              <div className="relative h-full w-full">
+                <HeroExperience />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
