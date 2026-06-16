@@ -1,80 +1,137 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap } from "../lib/gsap";
 
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
-import { words } from "../constants";
+import { profile, socialImgs, techStackImgs } from "../constants";
 
 const HeroExperience = dynamic(
   () => import("../components/models/hero_modals/HeroExperience"),
   { ssr: false }
 );
 
+const techPills = [
+  { label: "React", imgPath: techStackImgs[0].imgPath },
+  { label: "Next", imgPath: techStackImgs[1].imgPath },
+  { label: "Node", imgPath: techStackImgs[2].imgPath },
+  { label: "Python", imgPath: techStackImgs[3].imgPath },
+];
+
 const Hero = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-text h1",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
+  const heroRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.fromTo(".hero-name", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 })
+          .fromTo(".hero-role", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.45")
+          .fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.4")
+          .fromTo(
+            ".hero-tech-pill",
+            { y: 14, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.08, duration: 0.45 },
+            "-=0.35"
+          )
+          .fromTo(".hero-cta", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.25")
+          .fromTo(
+            ".hero-canvas",
+            { opacity: 0, x: 40 },
+            { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
+            0.15
+          );
+      }, heroRef);
+
+      return () => ctx.revert();
+    },
+    { scope: heroRef }
+  );
 
   return (
-    <section id="hero" className="relative overflow-hidden">
-      <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="" />
+    <section
+      id="hero"
+      ref={heroRef}
+      className="relative min-h-dvh overflow-hidden bg-black"
+    >
+      <div className="pointer-events-none absolute top-0 left-0 z-0 opacity-70">
+        <img src="/images/bg.png" alt="" className="w-40 sm:w-auto" />
       </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black to-transparent z-[3]"
+      />
 
-      <div className="hero-layout">
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
-          <div className="flex flex-col gap-7">
-            <div className="hero-text">
-              <h1>
-                Shaping
-                <span className="slide">
-                  <span className="wrapper">
-                    {words.map((word, index) => (
-                      <span
-                        key={index}
-                        className="flex items-center md:gap-3 gap-1 pb-2"
-                      >
-                        <img
-                          src={word.imgPath}
-                          alt="person"
-                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                        />
-                        <span>{word.text}</span>
-                      </span>
-                    ))}
-                  </span>
-                </span>
-              </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
-            </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-20">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-12 xl:gap-8 pt-32 md:pt-36 xl:pt-28 pb-12 xl:min-h-dvh">
+          <div className="relative z-20 flex flex-col gap-6 md:gap-7 xl:w-[44%] xl:max-w-lg">
+            <h1 className="hero-name text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              {profile.name}
+            </h1>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I&apos;m Akansha Verma — a Full Stack Web Developer at
-              Unibots, New Delhi. I build ad-tech dashboards, REST APIs, and
-              integrations with Next.js, React, Node.js, and Python.
+            <p className="hero-role text-lg md:text-xl text-white font-normal">
+              {profile.title} · {profile.location}
             </p>
 
-            <Button
-              text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
-              id="counter"
-            />
-          </div>
-        </header>
+            <p className="hero-desc text-base md:text-lg text-white leading-relaxed">
+              Building ad-tech dashboards, REST APIs, and production web apps
+              with Next.js, React, Node.js & Python at Unibots.
+            </p>
 
-        <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
+            <div className="flex flex-wrap gap-2.5 pt-1">
+              {techPills.map((tech) => (
+                <span
+                  key={tech.label}
+                  className="hero-tech-pill inline-flex items-center gap-2 rounded-full border border-black-50 bg-black-100 px-4 py-2 text-sm font-medium text-white"
+                >
+                  <img
+                    src={tech.imgPath}
+                    alt=""
+                    className="size-4 object-contain"
+                    loading="lazy"
+                  />
+                  {tech.label}
+                </span>
+              ))}
+            </div>
+
+            <div className="hero-cta flex flex-wrap items-center gap-4 pt-2">
+              <Button
+                text="See My Work"
+                className="md:w-72 md:h-14 w-56 h-12"
+                id="counter"
+              />
+              <div className="flex items-center gap-3">
+                {socialImgs.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex size-12 items-center justify-center rounded-xl border border-black-50 bg-black-100 transition-all duration-300 hover:border-white/20 hover:bg-black-200"
+                    aria-label={social.name}
+                  >
+                    <img
+                      src={social.imgPath}
+                      alt={social.name}
+                      className="size-5 object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-        </figure>
+
+          <div className="hero-canvas relative z-10 w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[56%] xl:-translate-y-1/2 h-[48vh] sm:h-[52vh] xl:h-[min(85vh,700px)]">
+            <div className="relative h-full w-full">
+              <HeroExperience />
+            </div>
+          </div>
+        </div>
       </div>
 
       <AnimatedCounter />

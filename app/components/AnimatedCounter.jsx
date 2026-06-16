@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "../lib/gsap";
+import { gsap } from "../lib/gsap";
 
 import { counterItems } from "../constants";
 
@@ -13,9 +12,24 @@ const AnimatedCounter = () => {
   useGSAP(
     () => {
       const ctx = gsap.context(() => {
-        const cards = gsap.utils.toArray(".counter-card");
+        gsap.fromTo(
+          ".counter-card",
+          { y: 24, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: counterRef.current,
+              start: "top 90%",
+              once: true,
+            },
+          }
+        );
 
-        cards.forEach((card, index) => {
+        gsap.utils.toArray(".counter-card").forEach((card, index) => {
           const numberElement = card.querySelector(".counter-number");
           const item = counterItems[index];
           if (!numberElement || !item) return;
@@ -47,17 +61,23 @@ const AnimatedCounter = () => {
   );
 
   return (
-    <div id="counter" ref={counterRef} className="padding-x-lg xl:mt-0 mt-32">
-      <div className="mx-auto grid-4-cols">
+    <div
+      id="counter"
+      ref={counterRef}
+      className="relative z-10 mx-auto max-w-7xl px-5 md:px-20 mt-4 xl:mt-0 pb-12"
+    >
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 rounded-2xl border border-black-50 bg-black-100/60 p-3 md:p-4 backdrop-blur-sm">
         {counterItems.map((item, index) => (
           <div
             key={index}
-            className="counter-card bg-zinc-900 rounded-lg p-10 flex flex-col justify-center"
+            className="counter-card group rounded-xl border border-black-50/80 bg-black-200/40 px-4 py-5 md:px-6 md:py-7 text-center transition-all duration-300 hover:border-white/10 hover:bg-black-200/70"
           >
-            <div className="counter-number text-white-50 text-5xl font-bold mb-2">
+            <div className="counter-number text-3xl md:text-4xl font-bold text-white mb-1">
               0{item.suffix}
             </div>
-            <div className="text-white-50 text-lg">{item.label}</div>
+            <div className="text-white-50 text-xs md:text-sm leading-snug">
+              {item.label}
+            </div>
           </div>
         ))}
       </div>
