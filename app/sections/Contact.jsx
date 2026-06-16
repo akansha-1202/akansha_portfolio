@@ -47,17 +47,17 @@ const Contact = () => {
 
   return (
     <section id="contact" className="flex-center section-padding">
-      <div className="w-full max-w-5xl md:px-10 px-5">
+      <div className="w-full max-w-5xl md:px-10 px-0">
         <TitleHeader
           title="Get in Touch – Let's Connect"
           sub="Have questions or ideas? I'd love to hear from you."
         />
 
-        <div className="grid-2-cols mt-16 items-start">
-          <div className="flex flex-col gap-6">
-            <div className="card-border rounded-2xl p-8 flex flex-col gap-6">
+        <div className="grid-2-cols mt-10 sm:mt-16 items-start gap-5 sm:gap-6">
+          <div className="flex flex-col gap-5 sm:gap-6">
+            <div className="card-border rounded-2xl p-5 sm:p-8 flex flex-col gap-5 sm:gap-6">
               <div>
-                <h3 className="text-2xl font-semibold text-white">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white">
                   Let's talk
                 </h3>
                 <p className="text-white-50 mt-3 leading-relaxed">
@@ -94,7 +94,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="card-border rounded-2xl p-8">
+            <div className="card-border rounded-2xl p-5 sm:p-8">
               <h3 className="text-lg font-semibold text-white">
                 Find me online
               </h3>
@@ -119,7 +119,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="card-border rounded-2xl p-8 md:p-10">
+          <div className="card-border rounded-2xl p-5 sm:p-8 md:p-10">
             <form
               ref={formRef}
               onSubmit={handleSubmit}

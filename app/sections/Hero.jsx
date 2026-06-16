@@ -66,18 +66,22 @@ const Hero = () => {
         className="pointer-events-none absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black to-transparent z-[3]"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-20">
-        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-12 xl:gap-8 pt-32 md:pt-36 xl:pt-28 pb-12 xl:min-h-dvh">
-          <div className="relative z-20 flex flex-col gap-6 md:gap-7 xl:w-[44%] xl:max-w-lg">
-            <h1 className="hero-name text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-20">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-8 sm:gap-10 xl:gap-8 pt-24 sm:pt-28 md:pt-36 xl:pt-28 pb-8 sm:pb-12 xl:min-h-dvh">
+          <div className="relative z-20 flex flex-col gap-5 sm:gap-6 md:gap-7 xl:w-[44%] xl:max-w-lg">
+            <h1 className="hero-name text-[1.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               {profile.name}
             </h1>
 
-            <p className="hero-role text-lg md:text-xl text-white font-normal">
-              {profile.title} · {profile.location}
+            <p className="hero-role text-base sm:text-lg md:text-xl text-white font-normal">
+              <span className="block sm:inline">{profile.title}</span>
+              <span className="hidden sm:inline"> · </span>
+              <span className="block sm:inline text-white-50 sm:text-white">
+                {profile.location}
+              </span>
             </p>
 
-            <p className="hero-desc text-base md:text-lg text-white leading-relaxed">
+            <p className="hero-desc text-sm sm:text-base md:text-lg text-white-50 sm:text-white leading-relaxed">
               Building ad-tech dashboards, REST APIs, and production web apps
               with Next.js, React, Node.js & Python at Unibots.
             </p>
@@ -99,13 +103,13 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="hero-cta flex flex-wrap items-center gap-4 pt-2">
+            <div className="hero-cta flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
               <Button
                 text="See My Work"
-                className="md:w-72 md:h-14 w-56 h-12"
+                className="w-full sm:w-56 md:w-72 h-12 md:h-14"
                 id="counter"
               />
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center sm:justify-start gap-3">
                 {socialImgs.map((social) => (
                   <a
                     key={social.name}
@@ -126,7 +130,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-canvas relative z-10 w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[56%] xl:-translate-y-1/2 h-[48vh] sm:h-[52vh] xl:h-[min(85vh,700px)]">
+          <div className="hero-canvas relative z-10 w-full xl:absolute xl:right-0 xl:top-1/2 xl:w-[56%] xl:-translate-y-1/2 h-[36vh] sm:h-[42vh] md:h-[48vh] xl:h-[min(85vh,700px)]">
             <div className="relative h-full w-full">
               <HeroExperience />
             </div>

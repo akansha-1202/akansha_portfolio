@@ -166,7 +166,7 @@ const Testimonials = () => {
     <section
       id="education"
       ref={sectionRef}
-      className="relative w-full px-5 md:px-20 mt-20 md:mt-40 py-12 md:py-16 overflow-hidden"
+      className="relative w-full px-4 sm:px-5 md:px-20 mt-16 md:mt-40 py-10 md:py-16 overflow-hidden"
     >
       <div
         aria-hidden

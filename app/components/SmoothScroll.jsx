@@ -10,11 +10,17 @@ const SmoothScroll = ({ children }) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const isNarrowViewport = window.matchMedia("(max-width: 768px)").matches;
+
+    if (isCoarsePointer || isNarrowViewport) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;

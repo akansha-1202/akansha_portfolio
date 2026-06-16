@@ -29,7 +29,7 @@ const GlowCard = ({ card, index = 0, children }) => {
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column"
+      className="card card-border timeline-card rounded-xl p-5 sm:p-8 md:p-10 mb-5 break-inside-avoid-column"
     >
       <div className="glow"></div>
       <div className="flex items-center gap-1 mb-5">
@@ -37,8 +37,8 @@ const GlowCard = ({ card, index = 0, children }) => {
           <img key={i} src="/images/star.png" alt="star" className="size-5" loading="lazy" />
         ))}
       </div>
-      <div className="mb-5">
-        <p className="text-white-50 text-lg">{card.review}</p>
+      <div className="mb-4 sm:mb-5">
+        <p className="text-white-50 text-base sm:text-lg leading-relaxed">{card.review}</p>
       </div>
       {children}
     </div>
