@@ -147,25 +147,25 @@ const techStackIcons = [
 ];
 
 const skillTags = [
-  "MongoDB",
-  "Express.js",
-  "Tailwind CSS",
-  "AdX",
-  "AdSense",
-  "Prebid.js",
-  "GitHub",
-  "Fastify.js",
-  "Ants Design",
-  "RestAPI",
-   "FastAPI",
+  { name: "MongoDB", icon: "/images/skills/mongodb.svg", category: "Backend" },
+  { name: "Express.js", icon: "/images/skills/express.svg", category: "Backend" },
+  { name: "FastAPI", icon: "/images/skills/fastapi.svg", category: "Backend" },
+  { name: "Fastify.js", icon: "/images/skills/fastify.svg", category: "Backend" },
+  { name: "RestAPI", icon: "/images/skills/restapi.svg", category: "Backend" },
+  { name: "Tailwind CSS", icon: "/images/skills/tailwind.svg", category: "Frontend" },
+  { name: "Ant Design", icon: "/images/skills/antdesign.svg", category: "Frontend" },
+  { name: "GitHub", icon: "/images/skills/github.svg", category: "Tools" },
+  { name: "Google AdX", icon: "/images/skills/google.svg", category: "Ad-Tech" },
+  { name: "Google AdSense", icon: "/images/skills/google.svg", category: "Ad-Tech" },
+  { name: "Prebid.js", icon: "/images/skills/prebid.svg", category: "Ad-Tech" },
 ];
 
 const techStackImgs = [
-  { name: "React.js", imgPath: "/images/logos/react.png" },
-  { name: "Python", imgPath: "/images/logos/python.svg" },
-  { name: "Node.js", imgPath: "/images/logos/node.png" },
-  { name: "Next.js", imgPath: "/images/logos/three.png" },
-  { name: "Git & GitHub", imgPath: "/images/logos/git.svg" },
+  { name: "React.js", imgPath: "/images/logos/react.png", accent: "#61DAFB" },
+  { name: "Next.js", imgPath: "/images/skills/nextjs.svg", accent: "#ffffff" },
+  { name: "Node.js", imgPath: "/images/logos/node.png", accent: "#68A063" },
+  { name: "Python", imgPath: "/images/logos/python.svg", accent: "#FFD43B" },
+  { name: "Git & GitHub", imgPath: "/images/logos/git.svg", accent: "#F05032" },
 ];
 
 const expCards = [
