@@ -1,44 +1,35 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap } from "gsap";
+import { gsap } from "../lib/gsap";
 import { useGSAP } from "@gsap/react";
 
 import { projects } from "../constants";
+import TitleHeader from "../components/TitleHeader";
 
 const ShowcaseSection = () => {
   const sectionRef = useRef(null);
-  const featuredRef = useRef(null);
-  const secondRef = useRef(null);
-  const thirdRef = useRef(null);
+  const cardRefs = useRef([]);
 
-  const [featured, second, third] = projects;
+  const [featured, ...sideProjects] = projects;
 
   useGSAP(
     () => {
       const ctx = gsap.context(() => {
-        gsap.fromTo(
-          sectionRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.8 }
-        );
-
-        const cards = [featuredRef.current, secondRef.current, thirdRef.current];
-
-        cards.forEach((card, index) => {
+        cardRefs.current.forEach((card, index) => {
           if (!card) return;
           gsap.fromTo(
             card,
-            { y: 40, opacity: 0 },
+            { y: 48, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.7,
-              delay: index * 0.1,
-              ease: "power2.out",
+              duration: 0.75,
+              delay: index * 0.08,
+              ease: "power3.out",
               scrollTrigger: {
                 trigger: card,
-                start: "top 90%",
+                start: "top 92%",
                 once: true,
               },
             }
@@ -52,38 +43,62 @@ const ShowcaseSection = () => {
   );
 
   return (
-    <div id="work" ref={sectionRef} className="app-showcase">
-      <div className="w-full">
-        <div className="showcaselayout">
-          <div ref={featuredRef} className="first-project-wrapper">
-            <div className="image-wrapper">
-              <img src={featured.image} alt={featured.title} loading="lazy" />
-            </div>
-            <div className="text-content">
-              <h2>{featured.title}</h2>
-              <p className="text-white-50 md:text-xl">{featured.description}</p>
-              <p className="text-white-50 md:text-lg mt-2">{featured.tech}</p>
-            </div>
-          </div>
+    <section id="work" ref={sectionRef} className="app-showcase">
+      <TitleHeader
+        title="Selected Work & Live Projects"
+        sub="💼 Portfolio Showcase"
+      />
 
-          <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={secondRef}>
-              <div className={`image-wrapper ${second.bgColor}`}>
-                <img src={second.image} alt={second.title} loading="lazy" />
-              </div>
-              <h2>{second.title}</h2>
-            </div>
-
-            <div className="project" ref={thirdRef}>
-              <div className={`image-wrapper ${third.bgColor}`}>
-                <img src={third.image} alt={third.title} loading="lazy" />
-              </div>
-              <h2>{third.title}</h2>
-            </div>
+      <div className="showcaselayout">
+        <a
+          href={featured.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          ref={(el) => (cardRefs.current[0] = el)}
+          className="showcase-featured group"
+        >
+          <div className="showcase-image">
+            <img src={featured.image} alt={featured.title} loading="lazy" />
+            <div className="showcase-overlay" />
+            <span className="showcase-visit">
+              Visit site
+              <img src="/images/arrow-right.svg" alt="" aria-hidden="true" />
+            </span>
           </div>
+          <div className="showcase-body">
+            <p className="showcase-tag">Featured project</p>
+            <h2>{featured.title}</h2>
+            <p className="showcase-desc">{featured.description}</p>
+            <p className="showcase-tech">{featured.tech}</p>
+          </div>
+        </a>
+
+        <div className="showcase-grid">
+          {sideProjects.map((project, index) => (
+            <a
+              key={project.title}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              ref={(el) => (cardRefs.current[index + 1] = el)}
+              className="showcase-card group"
+            >
+              <div className="showcase-image">
+                <img src={project.image} alt={project.title} loading="lazy" />
+                <div className="showcase-overlay" />
+                <span className="showcase-visit">
+                  <img src="/images/arrow-right.svg" alt="" aria-hidden="true" />
+                </span>
+              </div>
+              <div className="showcase-body">
+                <h2>{project.title}</h2>
+                <p className="showcase-tech">{project.tech}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -154,50 +154,97 @@ section {
   }
 
   .app-showcase {
-    @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
+    @apply w-full px-5 md:px-10 md:mt-40 mt-20 flex flex-col items-center gap-12 md:gap-16;
 
     .showcaselayout {
-      @apply flex xl:flex-row flex-col gap-10 justify-between;
+      @apply w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-6 xl:gap-8 items-start;
     }
 
-    .first-project-wrapper {
-      @apply h-full flex flex-col justify-between xl:w-[60%];
-
-      .image-wrapper {
-        @apply xl:h-[70vh] md:h-[50vh] h-96 relative;
-
-        img {
-          @apply w-full h-full object-cover rounded-xl absolute inset-0;
-        }
-      }
-
-      .text-content {
-        @apply space-y-5 mt-5;
-
-        .badges {
-          @apply flex gap-2 mb-4;
-        }
-
-        h2 {
-          @apply text-2xl md:text-3xl lg:text-4xl font-bold;
-        }
-      }
+    .showcase-featured {
+      @apply xl:col-span-7 border border-black-50 bg-black-100 rounded-2xl overflow-hidden
+        transition-all duration-500 ease-out
+        hover:-translate-y-1.5 hover:border-white/15
+        hover:shadow-[0_24px_48px_rgba(0,0,0,0.45)];
     }
 
-    .project-list-wrapper {
-      @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
+    .showcase-grid {
+      @apply xl:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-5 xl:gap-6;
+    }
 
-      .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
-      }
+    .showcase-card {
+      @apply border border-black-50 bg-black-100 rounded-2xl overflow-hidden flex flex-col h-full
+        transition-all duration-500 ease-out
+        hover:-translate-y-1.5 hover:border-white/15
+        hover:shadow-[0_16px_32px_rgba(0,0,0,0.4)];
+    }
+
+    .showcase-image {
+      @apply relative overflow-hidden bg-black-100;
 
       img {
-        @apply w-full h-full object-contain rounded-xl;
+        @apply w-full h-full object-cover object-top
+          transition-transform duration-700 ease-out
+          group-hover:scale-105;
       }
+    }
 
-      h2 {
-        @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
+    .showcase-featured .showcase-image {
+      @apply aspect-[16/10] sm:aspect-[16/9] xl:aspect-auto xl:h-[min(52vh,480px)];
+    }
+
+    .showcase-card .showcase-image {
+      @apply aspect-[16/10];
+    }
+
+    .showcase-overlay {
+      @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent
+        opacity-60 transition-opacity duration-500 group-hover:opacity-100;
+    }
+
+    .showcase-visit {
+      @apply absolute bottom-4 right-4 flex items-center gap-2
+        text-sm font-medium text-white bg-black/50 backdrop-blur-sm
+        px-3 py-1.5 rounded-full border border-white/10
+        opacity-0 translate-y-2 transition-all duration-300
+        group-hover:opacity-100 group-hover:translate-y-0;
+
+      img {
+        @apply size-4 transition-transform duration-300 group-hover:translate-x-0.5;
       }
+    }
+
+    .showcase-card .showcase-visit {
+      @apply bottom-3 right-3 p-2;
+
+      img {
+        @apply size-4;
+      }
+    }
+
+    .showcase-body {
+      @apply p-5 md:p-6 space-y-2;
+    }
+
+    .showcase-tag {
+      @apply text-xs uppercase tracking-widest text-blue-50 font-medium;
+    }
+
+    .showcase-featured h2 {
+      @apply text-xl md:text-2xl lg:text-3xl font-bold leading-snug
+        transition-colors duration-300 group-hover:text-white-50;
+    }
+
+    .showcase-card h2 {
+      @apply text-base md:text-lg font-semibold leading-snug line-clamp-2
+        transition-colors duration-300 group-hover:text-white-50;
+    }
+
+    .showcase-desc {
+      @apply text-white-50 text-sm md:text-base line-clamp-2;
+    }
+
+    .showcase-tech {
+      @apply text-white-50/80 text-xs md:text-sm pt-1;
     }
   }
 

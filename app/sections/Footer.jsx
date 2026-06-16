@@ -8,7 +8,7 @@ const Footer = () => {
           <a href={`mailto:${profile.email}`} className="hover:text-white transition-colors">
             {profile.email}
           </a>
-          <p>{profile.phone}</p>
+          {/* <p>{profile.phone}</p> */}
         </div>
         <div className="socials">
           {socialImgs.map((socialImg, index) => (

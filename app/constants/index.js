@@ -66,28 +66,50 @@ const abilities = [
 
 const projects = [
   {
-    title: "Unidash — Publisher & Ticketing Dashboard",
+    title: "Dental Nightteer — Free & Low Cost Dental Care",
     description:
-      "Built and maintained dashboards for ticketing systems and publisher management for Google Ad Manager (GAM) and AdSense for Search (AFS), including header bidding and Generic Cube script integrations.",
-    image: "/images/project1.png",
+      "A full-stack web platform helping users find free and affordable dental clinics across U.S. states, with state-wise search, service categories, and user reviews.",
+    image: "/images/projects/dental.png",
     featured: true,
-    tech: "Next.js, React.js, Node.js, MongoDB, GAM, AFS",
+    tech: "Next.js, React.js, Node.js, MongoDB",
+    url: "https://dental.nightteer.live/",
+    bgColor: "",
   },
   {
-    title: "AFS Backend Dashboard",
+    title: "FindQuickData — Affordable Housing Finder",
     description:
-      "Developed full-stack features to manage articles, domains, subdomains, networks, and channels with scalable modules for content and ad structure management.",
-    image: "/images/project2.png",
+      "Section 8 and low-income housing resource platform with state search, waiting list openings, and affordable apartment listings.",
+    image: "/images/projects/findquickdata.png",
+    tech: "Next.js, React.js, Node.js, MongoDB",
+    url: "https://findquickdata.com/",
     bgColor: "bg-[#FFEFDB]",
-    tech: "React.js, Node.js, Express.js, MongoDB",
   },
   {
-    title: "Cricket Score API & GAM Data Integration",
+    title: "SP Enterprises Store — RBX Counter",
     description:
-      "Built REST APIs for live cricket scores, match schedules, and commentary, and integrated Google Ad Manager API using Python for ad performance analytics.",
-    image: "/images/project3.png",
+      "Robux calculator and converter landing page with spin, quiz, and scratch-card features for Roblox players.",
+    image: "/images/projects/spenterprises.png",
+    tech: "React.js, JavaScript, Tailwind CSS",
+    url: "https://spenterprisesstore.com/",
     bgColor: "bg-[#FFE7EB]",
-    tech: "Node.js, Express.js, Python, REST APIs, GAM API",
+  },
+  {
+    title: "Global Mindset Co — Quiz Landing Page",
+    description:
+      "Interactive quiz funnel landing page designed to engage users and drive conversions for free product offers.",
+    image: "/images/projects/globalmindset.png",
+    tech: "Next.js, React.js, Tailwind CSS",
+    url: "https://globalmindsetco.com/quiz-lp",
+    bgColor: "bg-[#E8F4FD]",
+  },
+  {
+    title: "Color Theoryz — Video Platform",
+    description:
+      "A video streaming web platform with a modern UI, built for content discovery with terms, privacy, and contact pages.",
+    image: "/images/projects/colourtheoryz.png",
+    tech: "Next.js, React.js, Node.js",
+    url: "https://test.colourtheoryz.com/",
+    bgColor: "bg-[#12081f]",
   },
 ];
 
@@ -132,6 +154,10 @@ const skillTags = [
   "AdSense",
   "Prebid.js",
   "GitHub",
+  "Fastify.js",
+  "Ants Design",
+  "RestAPI",
+   "FastAPI",
 ];
 
 const techStackImgs = [
