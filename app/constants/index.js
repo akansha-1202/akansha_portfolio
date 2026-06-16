@@ -221,31 +221,48 @@ const expLogos = [
 
 const educationItems = [
   {
-    name: "Bachelor of Science (PCM)",
-    mentions: "Vimla Devi Ravindra Patel Mahavidhyalaya, Sitapur",
+    name: "Master of Computer Applications (MCA)",
+    institution: "Integral University",
+    period: "2025 – Present",
+    status: "pursuing",
     review:
-      "Completed B.Sc. in Physics, Chemistry, and Mathematics (2018–2021), building a strong analytical foundation before pursuing software development.",
+      "Currently pursuing MCA to deepen expertise in software engineering, algorithms, and computer applications while continuing full-stack development work.",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "Bachelor of Science (PCM)",
+    institution: "Vimla Devi Ravindra Patel Mahavidhyalaya, Sitapur",
+    period: "2018 – 2021",
+    status: "completed",
+    review:
+      "Completed B.Sc. in Physics, Chemistry, and Mathematics, building a strong analytical foundation before pursuing software development.",
     imgPath: "/images/client3.png",
   },
   {
     name: "Full Stack Web Development",
-    mentions: "Dec 2022 – Sep 2023",
+    institution: "PrepBytes",
+    period: "Dec 2022 – Sep 2023",
+    status: "completed",
     review:
       "Comprehensive training in HTML, CSS, JavaScript, React.js, Node.js, Express.js, and MongoDB with hands-on full-stack project development.",
     imgPath: "/images/client1.png",
   },
   {
     name: "NIELIT (DOEACC) O Level",
-    mentions: "Aug 2022 – Jul 2023",
+    institution: "National Institute of Electronics & IT (NIELIT)",
+    period: "Aug 2022 – Jul 2023",
+    status: "completed",
     review:
-      "National certification in electronics and information technology from the National Institute of Electronics and Information Technology (NIELIT).",
+      "National certification in electronics and information technology from NIELIT.",
     imgPath: "/images/client2.png",
   },
   {
-    name: "Course on Computer Concepts",
-    mentions: "NIELIT — Feb 2021",
+    name: "Course on Computer Concepts (CCC)",
+    institution: "NIELIT",
+    period: "Feb 2021",
+    status: "completed",
     review:
-      "Foundational certification in computer concepts issued by NIELIT, marking the start of my journey into programming and technology.",
+      "Foundational certification in computer concepts, marking the start of my journey into programming and technology.",
     imgPath: "/images/client4.png",
   },
 ];
