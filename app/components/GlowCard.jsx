@@ -1,34 +1,40 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 
 const GlowCard = ({ card, index = 0, children }) => {
-  const cardRefs = useRef([]);
+  const cardRef = useRef(null);
+  const rafId = useRef(null);
 
-  const handleMouseMove = (cardIndex) => (e) => {
-    const cardEl = cardRefs.current[cardIndex];
-    if (!cardEl) return;
+  const handleMouseMove = useCallback((e) => {
+    if (rafId.current) return;
 
-    const rect = cardEl.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left - rect.width / 2;
-    const mouseY = e.clientY - rect.top - rect.height / 2;
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null;
+      const cardEl = cardRef.current;
+      if (!cardEl) return;
 
-    let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
-    angle = (angle + 360) % 360;
+      const rect = cardEl.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left - rect.width / 2;
+      const mouseY = e.clientY - rect.top - rect.height / 2;
 
-    cardEl.style.setProperty("--start", angle + 60);
-  };
+      let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+      angle = (angle + 360) % 360;
+
+      cardEl.style.setProperty("--start", angle + 60);
+    });
+  }, []);
 
   return (
     <div
-      ref={(el) => (cardRefs.current[index] = el)}
-      onMouseMove={handleMouseMove(index)}
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
       className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column"
     >
       <div className="glow"></div>
       <div className="flex items-center gap-1 mb-5">
         {Array.from({ length: 5 }, (_, i) => (
-          <img key={i} src="/images/star.png" alt="star" className="size-5" />
+          <img key={i} src="/images/star.png" alt="star" className="size-5" loading="lazy" />
         ))}
       </div>
       <div className="mb-5">

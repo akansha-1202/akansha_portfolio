@@ -3,8 +3,9 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Particles = ({ count = 200 }) => {
+const Particles = ({ count = 60, active = true }) => {
   const mesh = useRef();
+  const frameSkip = useRef(0);
 
   const particles = useMemo(() => {
     const temp = [];
@@ -12,7 +13,7 @@ const Particles = ({ count = 200 }) => {
       temp.push({
         position: [
           (Math.random() - 0.5) * 10,
-          Math.random() * 10 + 5, // higher starting point
+          Math.random() * 10 + 5,
           (Math.random() - 0.5) * 10,
         ],
         speed: 0.005 + Math.random() * 0.001,
@@ -21,22 +22,33 @@ const Particles = ({ count = 200 }) => {
     return temp;
   }, [count]);
 
-  useFrame(() => {
-    const positions = mesh.current.geometry.attributes.position.array;
-    for (let i = 0; i < count; i++) {
-      let y = positions[i * 3 + 1];
-      y -= particles[i].speed;
-      if (y < -2) y = Math.random() * 10 + 5;
-      positions[i * 3 + 1] = y;
-    }
-    mesh.current.geometry.attributes.position.needsUpdate = true;
-  });
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3);
+    particles.forEach((p, i) => {
+      arr[i * 3] = p.position[0];
+      arr[i * 3 + 1] = p.position[1];
+      arr[i * 3 + 2] = p.position[2];
+    });
+    return arr;
+  }, [particles, count]);
 
-  const positions = new Float32Array(count * 3);
-  particles.forEach((p, i) => {
-    positions[i * 3] = p.position[0];
-    positions[i * 3 + 1] = p.position[1];
-    positions[i * 3 + 2] = p.position[2];
+  useFrame(() => {
+    if (!active || !mesh.current) return;
+
+    frameSkip.current += 1;
+    if (frameSkip.current % 2 !== 0) return;
+
+    const positionAttr = mesh.current.geometry.attributes.position;
+    const positionsArray = positionAttr.array;
+
+    for (let i = 0; i < count; i++) {
+      let y = positionsArray[i * 3 + 1];
+      y -= particles[i].speed * 2;
+      if (y < -2) y = Math.random() * 10 + 5;
+      positionsArray[i * 3 + 1] = y;
+    }
+
+    positionAttr.needsUpdate = true;
   });
 
   return (

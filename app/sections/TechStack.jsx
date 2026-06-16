@@ -1,59 +1,69 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useRef } from "react";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import TitleHeader from "../components/TitleHeader";
-import { techStackIcons, skillTags } from "../constants";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const TechIconCardExperience = dynamic(
-  () => import("../components/models/tech_logos/TechIconCardExperience"),
-  { ssr: false }
-);
+import { techStackImgs, skillTags } from "../constants";
 
 const TechStack = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".tech-card",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.inOut",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: "#skills",
-          start: "top center",
-        },
-      }
-    );
-  });
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          ".tech-card",
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: "#skills",
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      }, sectionRef);
+
+      return () => ctx.revert();
+    },
+    { scope: sectionRef }
+  );
 
   return (
-    <div id="skills" className="flex-center section-padding">
+    <div id="skills" ref={sectionRef} className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="How I Can Contribute & My Key Skills"
           sub="🤝 What I Bring to the Table"
         />
         <div className="tech-grid">
-          {techStackIcons.map((techStackIcon) => (
+          {techStackImgs.map((tech) => (
             <div
-              key={techStackIcon.name}
+              key={tech.name}
               className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
             >
               <div className="tech-card-animated-bg" />
               <div className="tech-card-content">
-                <div className="tech-icon-wrapper">
-                  <TechIconCardExperience model={techStackIcon} />
+                <div className="tech-icon-wrapper tech-icon-float">
+                  <Image
+                    src={tech.imgPath}
+                    alt={tech.name}
+                    width={112}
+                    height={112}
+                    className="object-contain size-24 md:size-28"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="padding-x w-full">
-                  <p>{techStackIcon.name}</p>
+                  <p>{tech.name}</p>
                 </div>
               </div>
             </div>
@@ -61,10 +71,7 @@ const TechStack = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-3 mt-12">
           {skillTags.map((skill) => (
-            <span
-              key={skill}
-              className="hero-badge text-sm md:text-base"
-            >
+            <span key={skill} className="hero-badge text-sm md:text-base">
               {skill}
             </span>
           ))}

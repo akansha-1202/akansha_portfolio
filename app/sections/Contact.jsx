@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
@@ -13,12 +13,32 @@ const ContactExperience = dynamic(
 
 const Contact = () => {
   const formRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [showCanvas, setShowCanvas] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    const target = canvasRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowCanvas(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "250px" }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,9 +133,15 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+          <div className="xl:col-span-7 min-h-96" ref={canvasRef}>
+            <div className="bg-[#cd7c2e] w-full h-full min-h-96 hover:cursor-grab rounded-3xl overflow-hidden">
+              {showCanvas ? (
+                <ContactExperience />
+              ) : (
+                <div className="w-full h-full min-h-96 flex items-center justify-center text-white-50 text-sm">
+                  Scroll down to load 3D preview
+                </div>
+              )}
             </div>
           </div>
         </div>

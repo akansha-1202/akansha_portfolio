@@ -1,5 +1,6 @@
 "use client";
 
+import SmoothScroll from "./SmoothScroll";
 import NavBar from "./NavBar";
 import Hero from "../sections/Hero";
 import ShowcaseSection from "../sections/ShowcaseSection";
@@ -12,7 +13,7 @@ import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
 const Portfolio = () => (
-  <>
+  <SmoothScroll>
     <NavBar />
     <Hero />
     <ShowcaseSection />
@@ -23,7 +24,7 @@ const Portfolio = () => (
     <Testimonials />
     <Contact />
     <Footer />
-  </>
+  </SmoothScroll>
 );
 
 export default Portfolio;

@@ -1,6 +1,11 @@
 "use client";
 
+import { useContext } from "react";
+import { LenisContext } from "./SmoothScroll";
+
 const Button = ({ text, className, id }) => {
+  const lenisRef = useContext(LenisContext);
+
   return (
     <a
       onClick={(e) => {
@@ -11,9 +16,14 @@ const Button = ({ text, className, id }) => {
         if (target && id) {
           const offset = window.innerHeight * 0.15;
           const top =
-            target.getBoundingClientRect().top + window.pageYOffset - offset;
+            target.getBoundingClientRect().top + window.scrollY - offset;
 
-          window.scrollTo({ top, behavior: "smooth" });
+          const lenis = lenisRef?.current;
+          if (lenis) {
+            lenis.scrollTo(top, { duration: 1.2 });
+          } else {
+            window.scrollTo({ top, behavior: "smooth" });
+          }
         }
       }}
       className={`${className ?? ""} cta-wrapper`}

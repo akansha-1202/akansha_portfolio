@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
   background-color: black;
   color: white;
-  scroll-behavior: smooth;
   font-family: "Mona Sans", sans-serif;
 }
 
@@ -239,19 +238,31 @@ section {
   }
 
   .timeline-wrapper {
-    @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
+    @apply relative w-12 md:w-24 xl:w-28 flex-shrink-0 self-stretch min-h-[200px];
   }
 
   .timeline {
-    @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+    @apply absolute z-10 inset-x-0 top-0 h-full w-full bg-black;
   }
 
   .timeline-logo {
-    @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
+    @apply md:size-20 size-10 absolute left-1/2 top-0 -translate-x-1/2 md:-translate-y-7 z-30 rounded-full flex justify-center items-center border border-black-50 bg-black-100;
+
+    img {
+      @apply size-8 md:size-12 object-contain;
+    }
   }
 
   .exp-card-wrapper {
-    @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
+    @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between relative;
+  }
+
+  .exp-content-row {
+    @apply flex items-stretch gap-5 md:gap-8 xl:gap-10 w-full;
+  }
+
+  .expText {
+    @apply relative z-30;
   }
 
   .gradient-edge {
@@ -408,6 +419,8 @@ section {
   position: absolute;
   overflow: hidden;
   animation: marquee 60s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .marquee-item {
   float: left;
@@ -469,4 +482,22 @@ section {
 
 .card:hover::before {
   opacity: 1;
+}
+
+.tech-icon-float {
+  animation: tech-float 4s ease-in-out infinite;
+}
+
+.tech-card:hover .tech-icon-float {
+  animation-duration: 2.5s;
+}
+
+@keyframes tech-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

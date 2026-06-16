@@ -1,63 +1,95 @@
 "use client";
 
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "../lib/gsap";
 
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Experience = () => {
-  useGSAP(() => {
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      gsap.from(card, {
-        xPercent: -100,
-        opacity: 0,
-        transformOrigin: "left left",
-        duration: 1,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-        },
-      });
-    });
+  const sectionRef = useRef(null);
 
-    gsap.to(".timeline", {
-      transformOrigin: "bottom bottom",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        onUpdate: (self) => {
-          gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
-          });
-        },
-      },
-    });
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        gsap.utils.toArray(".exp-card-wrapper").forEach((wrapper) => {
+          const card = wrapper.querySelector(".timeline-card");
+          const text = wrapper.querySelector(".expText");
+          const timeline = wrapper.querySelector(".timeline");
 
-    gsap.utils.toArray(".expText").forEach((text) => {
-      gsap.from(text, {
-        opacity: 0,
-        xPercent: 0,
-        duration: 1,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: text,
-          start: "top 60%",
-        },
-      });
-    }, "<");
-  }, []);
+          if (card) {
+            gsap.fromTo(
+              card,
+              { xPercent: -60, opacity: 0 },
+              {
+                xPercent: 0,
+                opacity: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: wrapper,
+                  start: "top 88%",
+                  end: "top 58%",
+                  scrub: 0.6,
+                },
+              }
+            );
+          }
+
+          if (text) {
+            gsap.fromTo(
+              text,
+              { opacity: 0, x: 40 },
+              {
+                opacity: 1,
+                x: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: wrapper,
+                  start: "top 82%",
+                  end: "top 52%",
+                  scrub: 0.6,
+                },
+              }
+            );
+          }
+
+          if (timeline) {
+            gsap.set(timeline, { transformOrigin: "bottom bottom", scaleY: 1 });
+            gsap.fromTo(
+              timeline,
+              { scaleY: 1 },
+              {
+                scaleY: 0,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: wrapper,
+                  start: "top 65%",
+                  end: "bottom 15%",
+                  scrub: 0.4,
+                },
+              }
+            );
+          }
+        });
+      }, sectionRef);
+
+      const timer = setTimeout(() => ScrollTrigger.refresh(), 400);
+
+      return () => {
+        clearTimeout(timer);
+        ctx.revert();
+      };
+    },
+    { scope: sectionRef }
+  );
 
   return (
     <section
       id="experience"
+      ref={sectionRef}
       className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
@@ -66,26 +98,26 @@ const Experience = () => {
           sub="💼 My Career Overview"
         />
         <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
+          <div className="relative z-10 xl:space-y-32 space-y-10">
             {expCards.map((card, index) => (
               <div key={card.title} className="exp-card-wrapper">
                 <div className="xl:w-2/6">
                   <GlowCard card={card} index={index}>
                     <div>
-                      <img src={card.imgPath} alt="exp-img" />
+                      <img src={card.imgPath} alt="exp-img" loading="lazy" />
                     </div>
                   </GlowCard>
                 </div>
                 <div className="xl:w-4/6">
-                  <div className="flex items-start">
+                  <div className="exp-content-row">
                     <div className="timeline-wrapper">
                       <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
+                      <div className="gradient-line w-1 h-full absolute left-1/2 -translate-x-1/2 top-0 z-[5]" />
                       <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+                        <img src={card.logoPath} alt="logo" loading="lazy" />
                       </div>
+                    </div>
+                    <div className="expText flex-1">
                       <div>
                         <h1 className="font-semibold text-3xl">{card.title}</h1>
                         <p className="my-5 text-white-50">
