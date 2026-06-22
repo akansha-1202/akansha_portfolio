@@ -145,7 +145,7 @@ const TechStack = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative w-full px-4 sm:px-5 md:px-20 mt-16 md:mt-40 py-10 md:py-16 overflow-hidden"
+      className="relative w-full px-4 sm:px-5 md:px-20 mt-12 md:mt-24 py-8 md:py-10 overflow-hidden"
     >
       <div
         aria-hidden
@@ -156,7 +156,7 @@ const TechStack = () => {
         className="pointer-events-none absolute -right-16 bottom-8 h-56 w-56 rounded-full bg-[#68A063]/10 blur-[90px]"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-9 md:gap-11">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:gap-7">
         <TitleHeader
           title="How I Can Contribute & My Key Skills"
           sub="🤝 What I Bring to the Table"
@@ -164,7 +164,7 @@ const TechStack = () => {
 
         {/* Core technologies — open layout, no box */}
         <div className="w-full">
-          <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white-50/60">
+          <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-white-50/60">
             Core Technologies
           </p>
           <div
@@ -200,13 +200,13 @@ const TechStack = () => {
         </div>
 
         {/* Daily tools — separate section, each category its own card */}
-        <div className="w-full flex flex-col gap-6 md:gap-7">
+        <div className="w-full flex flex-col gap-5 md:gap-6">
           <div
             ref={toolkitHeaderRef}
-            className="flex flex-col items-center gap-3 text-center"
+            className="flex flex-col items-center gap-2.5 text-center"
           >
-            <p className="hero-badge text-sm">⚡ Extended Toolkit</p>
-            <h2 className="text-xl md:text-3xl font-semibold">
+            <p className="hero-badge text-xs">⚡ Extended Toolkit</p>
+            <h2 className="text-lg md:text-xl font-semibold">
               Technologies & Tools I Use Daily
             </h2>
             <div className="toolkit-line h-px w-full max-w-xs origin-center bg-gradient-to-r from-transparent via-white/30 to-transparent" />

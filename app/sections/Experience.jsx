@@ -90,15 +90,15 @@ const Experience = () => {
     <section
       id="experience"
       ref={sectionRef}
-      className="flex-center md:mt-40 mt-16 section-padding xl:px-0"
+      className="flex-center md:mt-24 mt-12 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-4 sm:px-5">
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
         />
-        <div className="mt-12 md:mt-32 relative">
-          <div className="relative z-10 xl:space-y-32 space-y-10">
+        <div className="mt-8 md:mt-14 relative">
+          <div className="relative z-10 xl:space-y-16 space-y-8">
             {expCards.map((card, index) => (
               <div key={card.title} className="exp-card-wrapper">
                 <div className="xl:w-2/6">
@@ -119,19 +119,19 @@ const Experience = () => {
                     </div>
                     <div className="expText flex-1 min-w-0">
                       <div>
-                        <h3 className="font-semibold text-xl sm:text-2xl md:text-3xl leading-snug">
+                        <h3 className="font-semibold text-lg sm:text-xl md:text-2xl leading-snug">
                           {card.title}
                         </h3>
-                        <p className="my-3 sm:my-5 text-white-50 text-sm sm:text-base">
+                        <p className="my-2 sm:my-3 text-white-50 text-xs sm:text-sm">
                           🗓️&nbsp;{card.date}
                         </p>
-                        <p className="text-[#839CB5] italic text-sm sm:text-base">
+                        <p className="text-[#839CB5] italic text-xs sm:text-sm">
                           Responsibilities
                         </p>
-                        <ul className="list-disc ms-4 sm:ms-5 mt-3 sm:mt-5 flex flex-col gap-3 sm:gap-5 text-white-50">
+                        <ul className="list-disc ms-4 sm:ms-5 mt-2 sm:mt-3 flex flex-col gap-2 sm:gap-3 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, respIndex) => (
-                              <li key={respIndex} className="text-sm sm:text-base md:text-lg leading-relaxed">
+                              <li key={respIndex} className="text-xs sm:text-sm md:text-base leading-relaxed">
                                 {responsibility}
                               </li>
                             )

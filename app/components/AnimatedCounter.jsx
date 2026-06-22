@@ -64,18 +64,18 @@ const AnimatedCounter = () => {
     <div
       id="counter"
       ref={counterRef}
-      className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-20 mt-2 sm:mt-4 xl:mt-0 pb-8 sm:pb-12"
+      className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-20 mt-1 sm:mt-2 xl:mt-0 pb-5 sm:pb-7"
     >
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 rounded-2xl border border-black-50 bg-black-100/60 p-2.5 sm:p-3 md:p-4 backdrop-blur-sm">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 md:gap-3 rounded-2xl border border-black-50 bg-black-100/60 p-2 sm:p-2.5 md:p-3 backdrop-blur-sm">
         {counterItems.map((item, index) => (
           <div
             key={index}
-            className="counter-card group rounded-xl border border-black-50/80 bg-black-200/40 px-3 py-4 sm:px-4 sm:py-5 md:px-6 md:py-7 text-center transition-all duration-300 hover:border-white/10 hover:bg-black-200/70"
+            className="counter-card group rounded-xl border border-black-50/80 bg-black-200/40 px-2.5 py-3 sm:px-3 sm:py-4 md:px-4 md:py-5 text-center transition-all duration-300 hover:border-white/10 hover:bg-black-200/70"
           >
-            <div className="counter-number text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1">
+            <div className="counter-number text-xl sm:text-2xl md:text-3xl font-bold text-white mb-0.5">
               0{item.suffix}
             </div>
-            <div className="text-white-50 text-xs md:text-sm leading-snug">
+            <div className="text-white-50 text-[11px] sm:text-xs leading-snug">
               {item.label}
             </div>
           </div>

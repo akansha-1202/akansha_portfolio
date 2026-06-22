@@ -53,7 +53,7 @@ section {
   }
 
   .section-padding {
-    @apply px-4 sm:px-5 md:px-10 md:mt-40 mt-16;
+    @apply px-4 sm:px-5 md:px-10 md:mt-24 mt-12;
   }
 
   .mt-responsive {
@@ -66,11 +66,11 @@ section {
   }
 
   .grid-2-cols {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5;
   }
 
   .grid-3-cols {
-    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5;
   }
 
   .grid-3-cols-md-tight {
@@ -100,7 +100,7 @@ section {
   }
 
   .hero-badge {
-    @apply bg-black-200/90 py-2 px-4 rounded-full w-fit max-w-[min(100%,20rem)] text-sm md:text-base text-center border border-black-50 backdrop-blur-sm;
+    @apply bg-black-200/90 py-1.5 px-3.5 rounded-full w-fit max-w-[min(100%,20rem)] text-xs md:text-sm text-center border border-black-50 backdrop-blur-sm;
   }
 
   .navbar {
@@ -207,7 +207,7 @@ section {
   }
 
   .app-showcase {
-    @apply w-full px-4 sm:px-5 md:px-10 md:mt-40 mt-16 flex flex-col items-center gap-8 md:gap-16;
+    @apply w-full px-4 sm:px-5 md:px-10 md:mt-24 mt-12 flex flex-col items-center gap-5 md:gap-8;
 
     .showcaselayout {
       @apply w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-6 xl:gap-8 items-start;
@@ -276,7 +276,7 @@ section {
     }
 
     .showcase-body {
-      @apply p-4 sm:p-5 md:p-6 space-y-2;
+      @apply p-3.5 sm:p-4 md:p-5 space-y-1.5;
     }
 
     .showcase-tag {
@@ -284,21 +284,21 @@ section {
     }
 
     .showcase-featured h2 {
-      @apply text-xl md:text-2xl lg:text-3xl font-bold leading-snug
+      @apply text-lg md:text-xl lg:text-2xl font-bold leading-snug
         transition-colors duration-300 group-hover:text-white-50;
     }
 
     .showcase-card h2 {
-      @apply text-base md:text-lg font-semibold leading-snug line-clamp-2
+      @apply text-sm md:text-base font-semibold leading-snug line-clamp-2
         transition-colors duration-300 group-hover:text-white-50;
     }
 
     .showcase-desc {
-      @apply text-white-50 text-sm md:text-base line-clamp-2;
+      @apply text-white-50 text-xs md:text-sm line-clamp-2;
     }
 
     .showcase-tech {
-      @apply text-white-50/80 text-xs md:text-sm pt-1;
+      @apply text-white-50/80 text-[11px] md:text-xs pt-0.5;
     }
   }
 
@@ -307,7 +307,7 @@ section {
   }
 
   .cta-button {
-    @apply px-4 py-3.5 md:py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden min-h-12;
+    @apply px-4 py-3 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden min-h-11;
 
     .bg-circle {
       @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
@@ -316,7 +316,7 @@ section {
     }
 
     .text {
-      @apply uppercase text-sm md:text-lg text-black transition-all duration-500
+      @apply uppercase text-xs md:text-sm text-black transition-all duration-500
         group-hover:text-white-50 translate-x-0
         md:group-hover:-translate-x-5 xl:group-hover:translate-x-0;
     }
@@ -357,7 +357,7 @@ section {
   }
 
   .exp-card-wrapper {
-    @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between relative;
+    @apply flex flex-col-reverse xl:flex-row xl:gap-12 gap-6 justify-between relative;
   }
 
   .exp-content-row {
@@ -394,12 +394,12 @@ section {
 
   form {
     label {
-      @apply block text-white-50 mb-2;
+      @apply block text-white-50 mb-1.5 text-sm;
     }
 
     input,
     textarea {
-      @apply w-full px-4 py-3.5 md:py-4 text-base placeholder:text-blue-50 bg-blue-100 rounded-md;
+      @apply w-full px-3.5 py-3 text-base placeholder:text-blue-50 bg-blue-100 rounded-md;
     }
 
     a {
@@ -412,7 +412,7 @@ section {
   }
 
   .footer {
-    @apply my-10 md:mt-20 mt-10 text-white-50 px-4 sm:px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    @apply my-8 md:mt-16 mt-8 text-white-50 px-4 sm:px-5 md:px-20 xl:px-20 flex items-center justify-center;
     padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
 
     .footer-container {

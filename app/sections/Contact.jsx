@@ -53,25 +53,25 @@ const Contact = () => {
           sub="Have questions or ideas? I'd love to hear from you."
         />
 
-        <div className="grid-2-cols mt-10 sm:mt-16 items-start gap-5 sm:gap-6">
-          <div className="flex flex-col gap-5 sm:gap-6">
-            <div className="card-border rounded-2xl p-5 sm:p-8 flex flex-col gap-5 sm:gap-6">
+        <div className="grid-2-cols mt-7 sm:mt-9 items-start gap-4 sm:gap-5">
+          <div className="flex flex-col gap-4">
+            <div className="card-border rounded-2xl p-4 sm:p-6 flex flex-col gap-4">
               <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   Let's talk
                 </h3>
-                <p className="text-white-50 mt-3 leading-relaxed">
+                <p className="text-white-50 mt-2 text-sm leading-relaxed">
                   Whether it's a project, collaboration, or just a hello — drop
                   me a message and I'll get back to you soon.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="group flex items-center gap-4 rounded-xl border border-black-50 bg-black-100 px-5 py-4 transition-colors hover:border-white/15"
+                  className="group flex items-center gap-3 rounded-xl border border-black-50 bg-black-100 px-4 py-3 transition-colors hover:border-white/15"
                 >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-black-200 text-lg">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-black-200 text-base">
                     ✉
                   </span>
                   <div className="min-w-0">
@@ -82,8 +82,8 @@ const Contact = () => {
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 rounded-xl border border-black-50 bg-black-100 px-5 py-4">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-black-200 text-lg">
+                <div className="flex items-center gap-3 rounded-xl border border-black-50 bg-black-100 px-4 py-3">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-black-200 text-base">
                     📍
                   </span>
                   <div>
@@ -94,11 +94,11 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="card-border rounded-2xl p-5 sm:p-8">
-              <h3 className="text-lg font-semibold text-white">
+            <div className="card-border rounded-2xl p-4 sm:p-6">
+              <h3 className="text-base font-semibold text-white">
                 Find me online
               </h3>
-              <div className="mt-5 flex gap-4">
+              <div className="mt-3 flex gap-3">
                 {socialImgs.map((social) => (
                   <a
                     key={social.name}
@@ -119,11 +119,11 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="card-border rounded-2xl p-5 sm:p-8 md:p-10">
+          <div className="card-border rounded-2xl p-4 sm:p-6 md:p-7">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="flex w-full flex-col gap-6"
+              className="flex w-full flex-col gap-4"
             >
               <div>
                 <label htmlFor="name">Your name</label>
