@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Akansha Verma | Full Stack Web Developer",
   description:
-    "Full Stack Web Developer at Unibots specializing in ad-tech dashboards, AdX/AdSense integration, header bidding, and MERN stack development.",
+    "Full Stack Web Developer at Somo Media(Unibots) specializing in ad-tech dashboards, AdX/AdSense integration, header bidding, and MERN stack development.",
 };
 
 export const viewport: Viewport = {

@@ -174,7 +174,7 @@ const expCards = [
       "Leading ad-tech integrations with Google AdX, AdSense, and header bidding to optimize ad revenue and performance across publisher platforms.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Full Stack Developer — Unibots",
+    title: "Full Stack Developer — Somo Media(Unibots)",
     date: "April 2026 - Present",
     responsibilities: [
       "Integrated Google Ad Exchange (AdX) and AdSense ads with optimized placements and responsive ad units.",
@@ -188,7 +188,7 @@ const expCards = [
       "Delivered multiple production dashboards and APIs for ad-tech operations, campaign reporting, and real-time data services.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo1.png",
-    title: "Web Developer — Unibots",
+    title: "Web Developer — Somo Media(Unibots)",
     date: "June 2025 - March 2026",
     responsibilities: [
       "Built Unidash dashboards for ticketing systems and publisher management (GAM & AFS).",
@@ -202,7 +202,7 @@ const expCards = [
       "Built foundational ad-tech systems including AFS dashboards, RSOC campaign analytics, and GAM data integration pipelines.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo1.png",
-    title: "Junior Web Developer — Unibots",
+    title: "Junior Web Developer — Somo Media(Unibots)",
     date: "January 2024 - May 2025",
     responsibilities: [
       "Developed the AFS backend dashboard for managing articles, domains, subdomains, networks, and channels.",
@@ -214,9 +214,9 @@ const expCards = [
 ];
 
 const expLogos = [
-  { name: "unibots", imgPath: "/images/logo1.png" },
-  { name: "unibots", imgPath: "/images/logo1.png" },
-  { name: "unibots", imgPath: "/images/logo1.png" },
+  { name: "somomedia", imgPath: "/images/logo1.png" },
+  { name: "somomedia", imgPath: "/images/logo1.png" },
+  { name: "somomedia", imgPath: "/images/logo1.png" },
 ];
 
 const educationItems = [

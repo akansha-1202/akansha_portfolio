@@ -95,7 +95,7 @@ const Hero = () => {
 
             <p className="hero-desc text-sm sm:text-[0.9375rem] md:text-base text-white-50 sm:text-white leading-relaxed max-w-prose">
               Building ad-tech dashboards, REST APIs, and production web apps
-              with Next.js, React, Node.js & Python at Unibots.
+              with Next.js, React, Node.js & Python at Somo Media(Unibots).
             </p>
 
             <div className="flex flex-wrap gap-2 pt-0.5">
