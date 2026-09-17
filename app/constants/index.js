@@ -147,25 +147,37 @@ const techStackIcons = [
 ];
 
 const skillTags = [
-  { name: "MongoDB", icon: "/images/skills/mongodb.svg", category: "Backend" },
+  { name: "Tailwind CSS", icon: "/images/skills/tailwind.svg", category: "Frontend" },
+  { name: "Ant Design", icon: "/images/skills/antdesign.svg", category: "Frontend" },
   { name: "Express.js", icon: "/images/express.svg", category: "Backend" },
   { name: "FastAPI", icon: "/images/skills/fastapi.svg", category: "Backend" },
   { name: "Fastify.js", icon: "/images/skills/fastify.svg", category: "Backend" },
   { name: "RestAPI", icon: "/images/skills/restapi.svg", category: "Backend" },
-  { name: "Tailwind CSS", icon: "/images/skills/tailwind.svg", category: "Frontend" },
-  { name: "Ant Design", icon: "/images/skills/antdesign.svg", category: "Frontend" },
-  { name: "GitHub", icon: "/images/github.svg", category: "Tools" },
   { name: "Google AdX", icon: "/images/skills/google.svg", category: "Ad-Tech" },
   { name: "Google AdSense", icon: "/images/skills/google.svg", category: "Ad-Tech" },
   { name: "Prebid.js", icon: "/images/skills/prebid.svg", category: "Ad-Tech" },
+  { name: "Git", icon: "/images/logos/git.svg", category: "Tools" },
+  { name: "GitHub", icon: "/images/github.svg", category: "Tools" },
+  { name: "MongoDB Compass", icon: "/images/skills/compass.svg", category: "Tools" },
+  { name: "Postman", icon: "/images/skills/postman.svg", category: "Tools" },
+  { name: "Vercel", icon: "/images/skills/vercel.svg", category: "Tools" },
+  { name: "Cursor", icon: "/images/skills/cursor.svg", category: "Tools" },
+  { name: "ChatGPT", icon: "/images/skills/chatgpt.svg", category: "AI" },
+  {
+    name: "Vertex AI (LLM)",
+    icon: "/images/skills/vertexai.svg",
+    category: "AI",
+  },
 ];
 
 const techStackImgs = [
   { name: "React.js", imgPath: "/images/logos/react.png", accent: "#61DAFB" },
   { name: "Next.js", imgPath: "/images/nextjs.svg", accent: "#ffffff" },
+  { name: "JavaScript", imgPath: "/images/skills/javascript.svg", accent: "#F7DF1E" },
+  { name: "TypeScript", imgPath: "/images/skills/typescript.svg", accent: "#3178C6" },
   { name: "Node.js", imgPath: "/images/logos/node.png", accent: "#68A063" },
   { name: "Python", imgPath: "/images/logos/python.svg", accent: "#FFD43B" },
-  { name: "Git & GitHub", imgPath: "/images/logos/git.svg", accent: "#F05032" },
+  { name: "MongoDB", imgPath: "/images/skills/mongodb.svg", accent: "#13AA52" },
 ];
 
 const expCards = [

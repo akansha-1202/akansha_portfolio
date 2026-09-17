@@ -16,9 +16,11 @@ const HeroExperience = dynamic(
 
 const techPills = [
   { label: "React", imgPath: techStackImgs[0].imgPath },
+  { label: "TS", imgPath: techStackImgs[3].imgPath },
   { label: "Next", imgPath: techStackImgs[1].imgPath },
-  { label: "Node", imgPath: techStackImgs[2].imgPath },
-  { label: "Python", imgPath: techStackImgs[3].imgPath },
+  // { label: "JS", imgPath: techStackImgs[2].imgPath },
+  { label: "Node", imgPath: techStackImgs[4].imgPath },
+  { label: "MongoDB", imgPath: techStackImgs[6].imgPath },
 ];
 
 const Hero = () => {

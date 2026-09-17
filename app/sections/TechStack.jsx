@@ -7,13 +7,14 @@ import { gsap } from "../lib/gsap";
 import TitleHeader from "../components/TitleHeader";
 import { techStackImgs, skillTags } from "../constants";
 
-const categoryOrder = ["Frontend", "Backend", "Ad-Tech", "Tools"];
+const categoryOrder = ["Frontend", "Backend", "Ad-Tech", "Tools", "AI"];
 
 const categoryColors = {
   Frontend: "#61DAFB",
   Backend: "#68A063",
   "Ad-Tech": "#FFD43B",
   Tools: "#F05032",
+  AI: "#A78BFA",
 };
 
 const TechStack = () => {
@@ -214,7 +215,7 @@ const TechStack = () => {
 
           <div
             ref={matrixRef}
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5"
           >
             {skillCategories.map((category) => (
               <div
