@@ -319,6 +319,10 @@ section {
       @apply text-white-50 text-xs md:text-sm line-clamp-2;
     }
 
+    .showcase-highlights {
+      @apply list-disc ms-4 space-y-1 text-white-50/90 text-xs md:text-sm;
+    }
+
     .showcase-tech {
       @apply text-white-50/80 text-[11px] md:text-xs pt-0.5;
     }

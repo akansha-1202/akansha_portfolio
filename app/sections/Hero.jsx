@@ -14,13 +14,16 @@ const HeroExperience = dynamic(
   { ssr: false }
 );
 
+const techIcon = (name) =>
+  techStackImgs.find((tech) => tech.name === name)?.imgPath;
+
 const techPills = [
-  { label: "React", imgPath: techStackImgs[0].imgPath },
-  { label: "TS", imgPath: techStackImgs[3].imgPath },
-  { label: "Next", imgPath: techStackImgs[1].imgPath },
-  // { label: "JS", imgPath: techStackImgs[2].imgPath },
-  { label: "Node", imgPath: techStackImgs[4].imgPath },
-  { label: "MongoDB", imgPath: techStackImgs[6].imgPath },
+  { label: "React", imgPath: techIcon("React.js") },
+  { label: "TS", imgPath: techIcon("TypeScript") },
+  { label: "Next", imgPath: techIcon("Next.js") },
+  { label: "Node", imgPath: techIcon("Node.js") },
+  { label: "MongoDB", imgPath: techIcon("MongoDB") },
+  { label: "Redis", imgPath: techIcon("Redis") },
 ];
 
 const Hero = () => {
@@ -96,8 +99,9 @@ const Hero = () => {
             </p>
 
             <p className="hero-desc text-sm sm:text-[0.9375rem] md:text-base text-white-50 sm:text-white leading-relaxed max-w-prose">
-              Building ad-tech dashboards, REST APIs, and production web apps
-              with Next.js, React, Node.js & Python at Somo Media Private Limited.
+              2.5+ years shipping production MERN apps. Currently building Nexus,
+              a microservice ad campaign platform for Google Ads, Meta and Google
+              Ad Manager at Somo Media Private Limited.
             </p>
 
             <div className="flex flex-wrap gap-2 pt-0.5">

@@ -7,14 +7,24 @@ import { gsap } from "../lib/gsap";
 import TitleHeader from "../components/TitleHeader";
 import { techStackImgs, skillTags } from "../constants";
 
-const categoryOrder = ["Frontend", "Backend", "Ad-Tech", "Tools", "AI"];
+const categoryOrder = [
+  "Frontend",
+  "Backend & APIs",
+  "Microservices",
+  "Database",
+  "Testing & DevOps",
+  "Ad-Tech",
+  "AI & Practices",
+];
 
 const categoryColors = {
   Frontend: "#61DAFB",
-  Backend: "#68A063",
+  "Backend & APIs": "#68A063",
+  Microservices: "#DC382D",
+  Database: "#13AA52",
+  "Testing & DevOps": "#F05032",
   "Ad-Tech": "#FFD43B",
-  Tools: "#F05032",
-  AI: "#A78BFA",
+  "AI & Practices": "#A78BFA",
 };
 
 const TechStack = () => {
@@ -119,12 +129,12 @@ const TechStack = () => {
           matrixRef.current.querySelectorAll(".skill-row").forEach((row, i) => {
             gsap.fromTo(
               row,
-              { x: -16, opacity: 0 },
+              { y: 8, opacity: 0 },
               {
-                x: 0,
+                y: 0,
                 opacity: 1,
-                duration: 0.45,
-                delay: i * 0.04,
+                duration: 0.4,
+                delay: i * 0.012,
                 ease: "power2.out",
                 scrollTrigger: {
                   trigger: matrixRef.current,
@@ -215,7 +225,7 @@ const TechStack = () => {
 
           <div
             ref={matrixRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5"
           >
             {skillCategories.map((category) => (
               <div
@@ -248,24 +258,24 @@ const TechStack = () => {
                   </span>
                 </div>
 
-                <ul className="relative z-10 flex flex-col gap-1">
+                <ul className="relative z-10 flex flex-wrap gap-1.5">
                   {category.skills.map((skill) => (
                     <li key={skill.name}>
-                      <div className="skill-row group/skill flex items-center gap-2.5 rounded-lg border border-transparent px-2 py-2 transition-all duration-300 hover:border-black-50 hover:bg-black-200/50 hover:translate-x-1">
-                        <div
-                          className="flex size-8 shrink-0 items-center justify-center rounded-md border border-black-50 bg-black-200/60 transition-all duration-300 group-hover/skill:scale-110 group-hover/skill:border-white/10"
-                          style={{
-                            boxShadow: `0 0 0 0 ${category.color}00`,
-                          }}
-                        >
+                      <div className="skill-row group/skill flex items-center gap-1.5 rounded-lg border border-black-50 bg-black-200/40 px-2.5 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-black-200/80">
+                        {skill.icon ? (
                           <img
                             src={skill.icon}
-                            alt={skill.name}
-                            className="size-[18px] object-contain"
+                            alt=""
+                            className="size-4 shrink-0 object-contain"
                             loading="lazy"
                           />
-                        </div>
-                        <span className="text-sm text-white-50 transition-colors duration-300 group-hover/skill:text-white">
+                        ) : (
+                          <span
+                            className="size-1.5 shrink-0 rounded-full opacity-70"
+                            style={{ backgroundColor: category.color }}
+                          />
+                        )}
+                        <span className="text-xs sm:text-[13px] text-white-50 transition-colors duration-300 group-hover/skill:text-white whitespace-nowrap">
                           {skill.name}
                         </span>
                       </div>

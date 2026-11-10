@@ -34,24 +34,26 @@ const AnimatedCounter = () => {
           const item = counterItems[index];
           if (!numberElement || !item) return;
 
-          gsap.fromTo(
-            numberElement,
-            { innerText: 0 },
-            {
-              innerText: item.value,
-              duration: 2,
-              ease: "power2.out",
-              snap: { innerText: 1 },
-              scrollTrigger: {
-                trigger: counterRef.current,
-                start: "top 85%",
-                once: true,
-              },
-              onComplete: () => {
-                numberElement.textContent = `${item.value}${item.suffix}`;
-              },
-            }
-          );
+          const counter = { value: 0 };
+          const format = (value) =>
+            `${value.toFixed(item.decimals ?? 0)}${item.suffix}`;
+
+          gsap.to(counter, {
+            value: item.value,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: counterRef.current,
+              start: "top 85%",
+              once: true,
+            },
+            onUpdate: () => {
+              numberElement.textContent = format(counter.value);
+            },
+            onComplete: () => {
+              numberElement.textContent = format(item.value);
+            },
+          });
         });
       }, counterRef);
 

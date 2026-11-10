@@ -1,9 +1,9 @@
 const profile = {
   name: "Akansha Verma",
-  title: "Full Stack Web Developer",
+  title: "Full Stack Developer",
   email: "akanshav325@gmail.com",
   phone: "7236010850",
-  location: "New Delhi, India",
+  location: "Delhi NCR, India · Open to Remote",
   github: "https://github.com/akansha-1202",
   linkedin: "https://www.linkedin.com/in/akansha-verma-12f21cent",
 };
@@ -27,10 +27,10 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 2, suffix: "+", label: "Years of Experience" },
-  { value: 8, suffix: "+", label: "Production Dashboards" },
-  { value: 12, suffix: "+", label: "Technologies Used" },
-  { value: 3, suffix: "", label: "Certifications Earned" },
+  { value: 2.5, decimals: 1, suffix: "+", label: "Years of Experience" },
+  { value: 10, suffix: "+", label: "Production Web Apps" },
+  { value: 350, suffix: "+", label: "REST APIs on Nexus" },
+  { value: 50, suffix: "+", label: "Ad Accounts Integrated" },
 ];
 
 const logoIconsList = [
@@ -48,31 +48,54 @@ const logoIconsList = [
 
 const abilities = [
   {
-    imgPath: "/images/seo.png",
-    title: "Ad-Tech Integration",
-    desc: "Integrating Google AdX, AdSense, header bidding, and Prebid.js with optimized ad placements across publisher websites.",
-  },
-  {
     imgPath: "/images/chat.png",
-    title: "Full-Stack Dashboards",
-    desc: "Building scalable dashboards with Next.js, React.js, Node.js, Express.js, MongoDB, and Tailwind CSS.",
+    title: "End-to-End Features",
+    desc: "Owning features from UI and state management to API contracts, JWT/OAuth auth, MongoDB design, and deployment.",
   },
   {
     imgPath: "/images/time.png",
-    title: "API & Data Pipelines",
-    desc: "Developing REST APIs and backend workflows with Python and Google Ad Manager API for analytics and reporting.",
+    title: "Microservices & Background Jobs",
+    desc: "Building Node.js/Fastify services with Redis caching, BullMQ queues, and rate-limited third-party data sync.",
+  },
+  {
+    imgPath: "/images/seo.png",
+    title: "Ad-Tech Integrations",
+    desc: "Integrating Google Ads, Meta Marketing API, Google Ad Manager (GPT, KV targeting), and header bidding.",
   },
 ];
 
 const projects = [
   {
-    title: "Dental Nightteer — Free & Low Cost Dental Care",
+    title: "Nexus — Ad Campaign Management Platform",
     description:
-      "A full-stack web platform helping users find free and affordable dental clinics across U.S. states, with state-wise search, service categories, and user reviews.",
-    image: "/images/projects/dental.png",
+      "A Next.js frontend and 9 Fastify microservices behind an API gateway for creating, launching, and reporting on Google Ads, Meta, Outbrain, and Taboola campaigns.",
+    highlights: [
+      "350+ REST APIs with JWT auth, rate limiting, Joi validation, and Swagger docs",
+      "Built the Outbrain & Taboola reporting microservices with paginated, rate-limited sync jobs",
+      "Launchpad bulk launches plus AI-generated ad assets with Vertex AI and Gemini",
+    ],
+    image: "/images/projects/nexus-cover.png",
     featured: true,
-    tech: "Next.js, React.js, Node.js, MongoDB",
+    tech: "Next.js, React.js, Node.js, Fastify, MongoDB, Redis, BullMQ, Docker, Vertex AI",
+    url: "https://beta-nexus.unibots.com/",
+    bgColor: "",
+  },
+  {
+    title: "Dental Nightteer — Healthcare Locator Platform",
+    description:
+      "A full-stack platform helping users find free and low-cost dental clinics across U.S. states, with state-wise search, service filters, and user reviews.",
+    image: "/images/projects/dental.png",
+    tech: "Next.js, React.js, Node.js, Express.js, MongoDB, Mongoose",
     url: "https://dental.nightteer.live/",
+    bgColor: "",
+  },
+  {
+    title: "Unidash — Operations Dashboard",
+    description:
+      "Internal operations platform for ticketing, publisher onboarding, and campaign workflows across 50+ client accounts.",
+    image: "/images/projects/unidash-cover.png",
+    tech: "Next.js, React.js, Node.js, MongoDB, Redis, Bull, Ant Design",
+    url: "https://unidash.unibots.com/",
     bgColor: "",
   },
   {
@@ -147,27 +170,75 @@ const techStackIcons = [
 ];
 
 const skillTags = [
+  { name: "HTML5", icon: "/images/skills/html5.svg", category: "Frontend" },
+  { name: "CSS3", icon: "/images/skills/css3.svg", category: "Frontend" },
+  { name: "Redux Toolkit", icon: "/images/skills/redux.svg", category: "Frontend" },
+  { name: "Zustand", icon: "/images/skills/zustand.svg", category: "Frontend" },
+  { name: "TanStack Query", icon: "/images/skills/reactquery.svg", category: "Frontend" },
   { name: "Tailwind CSS", icon: "/images/skills/tailwind.svg", category: "Frontend" },
   { name: "Ant Design", icon: "/images/skills/antdesign.svg", category: "Frontend" },
-  { name: "Express.js", icon: "/images/express.svg", category: "Backend" },
-  { name: "FastAPI", icon: "/images/skills/fastapi.svg", category: "Backend" },
-  { name: "Fastify.js", icon: "/images/skills/fastify.svg", category: "Backend" },
-  { name: "RestAPI", icon: "/images/skills/restapi.svg", category: "Backend" },
-  { name: "Google AdX", icon: "/images/skills/google.svg", category: "Ad-Tech" },
-  { name: "Google AdSense", icon: "/images/skills/google.svg", category: "Ad-Tech" },
-  { name: "Prebid.js", icon: "/images/skills/prebid.svg", category: "Ad-Tech" },
-  { name: "Git", icon: "/images/logos/git.svg", category: "Tools" },
-  { name: "GitHub", icon: "/images/github.svg", category: "Tools" },
-  { name: "MongoDB Compass", icon: "/images/skills/compass.svg", category: "Tools" },
-  { name: "Postman", icon: "/images/skills/postman.svg", category: "Tools" },
-  { name: "Vercel", icon: "/images/skills/vercel.svg", category: "Tools" },
-  { name: "Cursor", icon: "/images/skills/cursor.svg", category: "Tools" },
-  { name: "ChatGPT", icon: "/images/skills/chatgpt.svg", category: "AI" },
-  {
-    name: "Vertex AI (LLM)",
-    icon: "/images/skills/vertexai.svg",
-    category: "AI",
-  },
+  { name: "Material UI", icon: "/images/skills/materialui.svg", category: "Frontend" },
+  { name: "Bootstrap", icon: "/images/skills/bootstrap.svg", category: "Frontend" },
+  { name: "React Hooks", category: "Frontend" },
+  { name: "Context API", category: "Frontend" },
+  { name: "Next.js SSR", category: "Frontend" },
+  { name: "Responsive Design", category: "Frontend" },
+
+  { name: "Fastify.js", icon: "/images/skills/fastify.svg", category: "Backend & APIs" },
+  { name: "FastAPI", icon: "/images/skills/fastapi.svg", category: "Backend & APIs" },
+  { name: "REST API Design", icon: "/images/skills/restapi.svg", category: "Backend & APIs" },
+  { name: "WebSocket", icon: "/images/skills/socketio.svg", category: "Backend & APIs" },
+  { name: "JWT Auth", icon: "/images/skills/jsonwebtokens.svg", category: "Backend & APIs" },
+  { name: "Swagger / OpenAPI", icon: "/images/skills/swagger.svg", category: "Backend & APIs" },
+  { name: "OAuth 2.0", category: "Backend & APIs" },
+  { name: "Token Rotation", category: "Backend & APIs" },
+  { name: "Joi Validation", category: "Backend & APIs" },
+  { name: "Middleware", category: "Backend & APIs" },
+  { name: "Webhooks", category: "Backend & APIs" },
+  { name: "MVC Architecture", category: "Backend & APIs" },
+
+  { name: "Redis Caching", icon: "/images/skills/redis.svg", category: "Microservices" },
+  { name: "BullMQ", category: "Microservices" },
+  { name: "API Gateway", category: "Microservices" },
+  { name: "Message Queues", category: "Microservices" },
+  { name: "Scheduled Jobs", category: "Microservices" },
+  { name: "Rate-Limited Data Sync", category: "Microservices" },
+  { name: "Retry & Token Refresh", category: "Microservices" },
+  { name: "Third-Party APIs", category: "Microservices" },
+
+  { name: "Mongoose", icon: "/images/skills/mongoose.svg", category: "Database" },
+  { name: "Schema Design", category: "Database" },
+  { name: "Aggregation Pipeline", category: "Database" },
+  { name: "Indexing", category: "Database" },
+  { name: "Query Optimization", category: "Database" },
+
+  { name: "Docker", icon: "/images/skills/docker.svg", category: "Testing & DevOps" },
+  { name: "Jenkins", icon: "/images/skills/jenkins.svg", category: "Testing & DevOps" },
+  { name: "Jest", icon: "/images/skills/jest.svg", category: "Testing & DevOps" },
+  { name: "Postman", icon: "/images/skills/postman.svg", category: "Testing & DevOps" },
+  { name: "Git", icon: "/images/logos/git.svg", category: "Testing & DevOps" },
+  { name: "GitHub", icon: "/images/github.svg", category: "Testing & DevOps" },
+  { name: "Vercel", icon: "/images/skills/vercel.svg", category: "Testing & DevOps" },
+  { name: "Nginx", icon: "/images/skills/nginx.svg", category: "Testing & DevOps" },
+  { name: "MongoDB Compass", icon: "/images/skills/compass.svg", category: "Testing & DevOps" },
+  { name: "Performance Profiling", category: "Testing & DevOps" },
+  { name: "Code Reviews", category: "Testing & DevOps" },
+
+  { name: "Google Ads API", icon: "/images/skills/googleads.svg", category: "Ad-Tech" },
+  { name: "Meta Marketing API", icon: "/images/skills/meta.svg", category: "Ad-Tech" },
+  { name: "Google Ad Manager", icon: "/images/skills/google.svg", category: "Ad-Tech" },
+  { name: "AdSense", icon: "/images/skills/googleadsense.svg", category: "Ad-Tech" },
+  { name: "Header Bidding", icon: "/images/skills/prebid.svg", category: "Ad-Tech" },
+  { name: "Google Publisher Tags", category: "Ad-Tech" },
+  { name: "KV Targeting", category: "Ad-Tech" },
+
+  { name: "Vertex AI", icon: "/images/skills/googlecloud.svg", category: "AI & Practices" },
+  { name: "Gemini", icon: "/images/skills/googlegemini.svg", category: "AI & Practices" },
+  { name: "Cloud Translate", icon: "/images/skills/googletranslate.svg", category: "AI & Practices" },
+  { name: "ChatGPT", icon: "/images/skills/openai.svg", category: "AI & Practices" },
+  { name: "Cursor", icon: "/images/skills/cursor.svg", category: "AI & Practices" },
+  { name: "Agile / Scrum", category: "AI & Practices" },
+  { name: "CI/CD Workflows", category: "AI & Practices" },
 ];
 
 const techStackImgs = [
@@ -176,51 +247,54 @@ const techStackImgs = [
   { name: "JavaScript", imgPath: "/images/skills/javascript.svg", accent: "#F7DF1E" },
   { name: "TypeScript", imgPath: "/images/skills/typescript.svg", accent: "#3178C6" },
   { name: "Node.js", imgPath: "/images/logos/node.png", accent: "#68A063" },
-  { name: "Python", imgPath: "/images/logos/python.svg", accent: "#FFD43B" },
+  { name: "Express.js", imgPath: "/images/express.svg", accent: "#ffffff" },
   { name: "MongoDB", imgPath: "/images/skills/mongodb.svg", accent: "#13AA52" },
+  { name: "Redis", imgPath: "/images/skills/redis.svg", accent: "#DC382D" },
+  { name: "Python", imgPath: "/images/logos/python.svg", accent: "#FFD43B" },
 ];
 
 const expCards = [
   {
     review:
-      "Leading ad-tech integrations with Google AdX, AdSense, and header bidding to optimize ad revenue and performance across publisher platforms.",
+      "Contributing to Nexus, a microservice ad campaign platform for Google Ads and Meta — 7 Node.js/Fastify services behind an API gateway, with a Next.js frontend and MongoDB.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
     title: "Full Stack Developer — Somo Media Private Limited",
     date: "April 2026 - Present",
     responsibilities: [
-      "Integrated Google Ad Exchange (AdX) and AdSense ads with optimized placements and responsive ad units.",
-      "Improved ad rendering performance across devices with efficient client-side ad scripts.",
-      "Implemented header bidding with Prebid.js to increase bid competition across demand partners.",
-      "Managed performance tracking and ad delivery workflows for publisher websites.",
+      "Integrated the Google Ads API and Meta Marketing API to create, clone, publish, and sync campaigns across 50+ ad accounts, with long-running tasks on 20+ BullMQ queues and Redis.",
+      "Added Redis caching and scheduled sync jobs, cutting report load time by ~60%, and optimized MongoDB aggregation pipelines to reduce API response time by ~40%.",
+      "Shipped a shared React.js component library reused across 10+ production apps, improving render performance by ~15%.",
+      "Built Google Ad Manager integrations (GPT, KV targeting, lazy loading, rewarded ads) and header-bidding modules calling 5+ partner APIs, improving viewability by ~20%.",
+      "Migrated frontend modules to TypeScript with typed API contracts, and introduced config-driven deployments that cut new-integration setup by ~30%.",
     ],
   },
   {
     review:
-      "Delivered multiple production dashboards and APIs for ad-tech operations, campaign reporting, and real-time data services.",
+      "Built Unidash, real-time sports APIs, and data-sync pipelines that consolidated campaign reporting for internal teams.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo1.png",
     title: "Web Developer — Somo Media Private Limited",
     date: "June 2025 - March 2026",
     responsibilities: [
-      "Built Unidash dashboards for ticketing systems and publisher management (GAM & AFS).",
-      "Developed campaign reporting integrations for Outbrain and Taboola with performance visualization.",
-      "Created REST APIs for live cricket scores, match schedules, and commentary with real-time updates.",
-      "Configured header bidding, Generic Cube scripts, and ad subdomains for AFS implementations.",
+      "Built and maintained Unidash, a React.js + Redux operations platform used to run ticketing and manage 50+ client accounts.",
+      "Designed Node.js REST APIs for live cricket scores, schedules, and ball-by-ball commentary with sub-second latency for 1,000+ concurrent users.",
+      "Engineered Node.js data-sync pipelines consolidating metrics from two reporting APIs into one React view, removing ~25% of manual reporting work.",
+      "Configured client-side script integrations and subdomain routing across 15+ client web properties.",
     ],
   },
   {
     review:
-      "Built foundational ad-tech systems including AFS dashboards, RSOC campaign analytics, and GAM data integration pipelines.",
+      "Delivered full-stack features, reporting dashboards, and automation that replaced hours of manual work every week.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo1.png",
     title: "Junior Web Developer — Somo Media Private Limited",
     date: "January 2024 - May 2025",
     responsibilities: [
-      "Developed the AFS backend dashboard for managing articles, domains, subdomains, networks, and channels.",
-      "Built RSOC dashboard components to visualize Google Ads and Meta campaign data.",
-      "Integrated Google Ad Manager API using Python to fetch and store ad performance data.",
-      "Created the Universal Dashboard for managing header bidding and Generic Cube ad-tech scripts.",
+      "Delivered React.js + Node.js/Express features for a content management dashboard handling 100+ articles, domains, subdomains, and channels.",
+      "Built a reporting dashboard visualising Google Ads and Meta Ads campaign data, improving data visibility for 20+ clients.",
+      "Automated a recurring reporting workflow in Python with a Google reporting API, replacing ~5 hours/week of manual compilation.",
+      "Built an internal tool for managing and deploying client-side scripts across client sites, reducing deployment time by ~40%.",
     ],
   },
 ];
@@ -238,12 +312,12 @@ const educationItems = [
     period: "2025 – Present",
     status: "pursuing",
     review:
-      "Currently pursuing MCA to deepen expertise in software engineering, algorithms, and computer applications while continuing full-stack development work.",
+      "Pursuing MCA part-time alongside full-time work, deepening expertise in software engineering, algorithms, and computer applications.",
     imgPath: "/images/client5.png",
   },
   {
     name: "Bachelor of Science (PCM)",
-    institution: "Vimla Devi Ravindra Patel Mahavidhyalaya, Sitapur",
+    institution: "Vimla Devi Ravindra Patel Mahavidyalaya, Sitapur, UP",
     period: "2018 – 2021",
     status: "completed",
     review:

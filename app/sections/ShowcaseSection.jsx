@@ -69,6 +69,13 @@ const ShowcaseSection = () => {
             <p className="showcase-tag">Featured project</p>
             <h2>{featured.title}</h2>
             <p className="showcase-desc">{featured.description}</p>
+            {featured.highlights && (
+              <ul className="showcase-highlights">
+                {featured.highlights.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            )}
             <p className="showcase-tech">{featured.tech}</p>
           </div>
         </a>

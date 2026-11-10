@@ -18,9 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Akansha Verma | Full Stack Web Developer",
+  title: "Akansha Verma | Full Stack Developer",
   description:
-    "Full Stack Web Developer at Somo Media Private Limited specializing in ad-tech dashboards, AdX/AdSense integration, header bidding, and MERN stack development.",
+    "Full Stack Developer with 2.8+ years building production MERN apps — React.js, Next.js, Node.js, Express, MongoDB, Redis and microservices — at Somo Media Private Limited.",
 };
 
 export const viewport: Viewport = {
