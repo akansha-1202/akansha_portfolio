@@ -99,6 +99,15 @@ const projects = [
     bgColor: "",
   },
   {
+    title: "Akshat Verma — Creative Portfolio",
+    description:
+      "A client portfolio site for a video editor and AI content creator — work showcase, experience timeline, tools, and contact form, deployed on Vercel.",
+    image: "/images/projects/akshat-portfolio.png",
+    tech: "Next.js, React.js, Tailwind CSS, Vercel",
+    url: "https://akshat-portfolio-psi-mauve.vercel.app/",
+    bgColor: "",
+  },
+  {
     title: "FindQuickData — Affordable Housing Finder",
     description:
       "Section 8 and low-income housing resource platform with state search, waiting list openings, and affordable apartment listings.",
@@ -125,15 +134,15 @@ const projects = [
     url: "https://globalmindsetco.com/quiz-lp",
     bgColor: "bg-[#E8F4FD]",
   },
-  {
-    title: "Color Theoryz — Video Platform",
-    description:
-      "A video streaming web platform with a modern UI, built for content discovery with terms, privacy, and contact pages.",
-    image: "/images/projects/colourtheoryz.png",
-    tech: "Next.js, React.js, Node.js",
-    url: "https://test.colourtheoryz.com/",
-    bgColor: "bg-[#12081f]",
-  },
+  // {
+  //   title: "Color Theoryz — Video Platform",
+  //   description:
+  //     "A video streaming web platform with a modern UI, built for content discovery with terms, privacy, and contact pages.",
+  //   image: "/images/projects/colourtheoryz.png",
+  //   tech: "Next.js, React.js, Node.js",
+  //   url: "https://test.colourtheoryz.com/",
+  //   bgColor: "bg-[#12081f]",
+  // },
 ];
 
 const techStackIcons = [
