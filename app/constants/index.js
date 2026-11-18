@@ -27,7 +27,11 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 2.5, decimals: 1, suffix: "+", label: "Years of Experience" },
+  {
+    type: "experience",
+    label: "Professional Experience",
+    sublabel: "Since Jan 2024",
+  },
   { value: 10, suffix: "+", label: "Production Web Apps" },
   { value: 350, suffix: "+", label: "REST APIs on Nexus" },
   { value: 50, suffix: "+", label: "Ad Accounts Integrated" },

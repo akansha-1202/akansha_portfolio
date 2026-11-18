@@ -8,6 +8,7 @@ import { gsap } from "../lib/gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import { profile, socialImgs, techStackImgs } from "../constants";
+import { getExperienceLabel } from "../lib/experience";
 
 const HeroExperience = dynamic(
   () => import("../components/models/hero_modals/HeroExperience"),
@@ -29,6 +30,7 @@ const techPills = [
 const Hero = () => {
   const heroRef = useRef(null);
   const [showHeroCanvas, setShowHeroCanvas] = useState(false);
+  const experienceLabel = getExperienceLabel();
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -45,7 +47,8 @@ const Hero = () => {
 
         tl.fromTo(".hero-name", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 })
           .fromTo(".hero-role", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.45")
-          .fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.4")
+          .fromTo(".hero-experience", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.4")
+          .fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.35")
           .fromTo(
             ".hero-tech-pill",
             { y: 14, opacity: 0 },
@@ -98,10 +101,20 @@ const Hero = () => {
               </span>
             </p>
 
+            {/* <div className="hero-experience inline-flex w-fit items-center gap-2 rounded-full border border-black-50 bg-black-100 px-3 py-1.5">
+              <span className="size-1.5 rounded-full bg-emerald-400" />
+              <span className="text-xs sm:text-sm font-medium text-white">
+                {experienceLabel} experience
+              </span>
+              <span className="text-[11px] sm:text-xs text-white-50/70">
+                · since Jan 2024
+              </span>
+            </div> */}  
+
             <p className="hero-desc text-sm sm:text-[0.9375rem] md:text-base text-white-50 sm:text-white leading-relaxed max-w-prose">
-              2.5+ years shipping production MERN apps. Currently building Nexus,
-              a microservice ad campaign platform for Google Ads, Meta and Google
-              Ad Manager at Somo Media Private Limited.
+              {experienceLabel} shipping production MERN apps. Currently building
+              Nexus, a microservice ad campaign platform for Google Ads, Meta and
+              Google Ad Manager at Somo Media Private Limited.
             </p>
 
             <div className="flex flex-wrap gap-2 pt-0.5">

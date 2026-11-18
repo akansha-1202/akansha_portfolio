@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Akansha Verma | Full Stack Developer",
   description:
-    "Full Stack Developer with 2.8+ years building production MERN apps — React.js, Next.js, Node.js, Express, MongoDB, Redis and microservices — at Somo Media Private Limited.",
+    "Full Stack Developer building production MERN apps since Jan 2024 — React.js, Next.js, Node.js, Express, MongoDB, Redis and microservices — at Somo Media Private Limited.",
 };
 
 export const viewport: Viewport = {

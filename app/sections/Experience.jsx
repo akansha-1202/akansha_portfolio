@@ -8,9 +8,11 @@ import { ScrollTrigger } from "../lib/gsap";
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
+import { getExperienceLabel } from "../lib/experience";
 
 const Experience = () => {
   const sectionRef = useRef(null);
+  const experienceLabel = getExperienceLabel();
 
   useGSAP(
     () => {
@@ -95,7 +97,7 @@ const Experience = () => {
       <div className="w-full h-full md:px-20 px-4 sm:px-5">
         <TitleHeader
           title="Professional Work Experience"
-          sub="💼 My Career Overview"
+          sub={`💼 ${experienceLabel} · since Jan 2024`}
         />
         <div className="mt-8 md:mt-14 relative">
           <div className="relative z-10 xl:space-y-16 space-y-8">
